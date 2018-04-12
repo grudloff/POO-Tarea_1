@@ -1,28 +1,32 @@
-//Vector2D:Utilizado para crear el vector de posición y velcodidad
-
 public class Vector2D {
    private double x, y;  // we will use cartesian coordinates
    public Vector2D () {
 	   x = y = 0;
    }
-   
    public Vector2D (double x, double y) {
 	   this.x=x;
 	   this.y=y;
+   }
+   public Vector2D getUnitary() {
+	   return this.times(1.0/Math.sqrt(Math.pow(this.getX(),2.0)+Math.pow(this.getY(),2.0)));
    }
    
    public double getX(){
 	   return x;
    }
-   
    public double getY(){
 	   return y;
    }
-   
-   public double getA(){//angulo 
-	   return Math.atan2(y, x);
+   public void turnLeft() {
+	   double x_aux=x;
+	   x=y;
+	   y=-x_aux;
    }
-   
+   public void turnRight() {
+	   double x_aux=x;
+	   x=-y;
+	   y=x_aux;
+   }
    public void setTo(double x, double y){
 	   this.x=x;
 	   this.x=y;
@@ -34,13 +38,6 @@ public class Vector2D {
    public Vector2D times(double scalar) {
 	   return  new Vector2D(x*scalar,y*scalar);
    }
-   
-   public void plusAngle(double dA) { //similar a coordenadas
-	   double A = this.getA()+dA; //angulo
-	   double r=Math.sqrt(Math.pow(this.x, 2) +Math.pow(this.y, 2));//magnitud 
-	   this.setTo(r*Math.cos(A),r*Math.sin(A));
-   }
-   
    public Vector2D minus(Vector2D v) {
 	   if (v==null) return  new Vector2D(x,y);
 	   else return new Vector2D(x-v.x, y-v.y);

@@ -6,48 +6,42 @@ public class Maze {
       String s;
       while(!sc.hasNextInt())
           sc.nextLine();
-      width = sc.nextInt();
-      hight = sc.nextInt();
+      int width = sc.nextInt();
+      int hight = sc.nextInt();
       sc.nextLine();
       array = new boolean [hight][];
-//      for (int h=0; h<hight; h++)
-//         array[h] = new boolean[width];
-      for (int h=0; h<hight; h++) { 
-    	 array[h] = new boolean[width];
+      for (int h=0; h<hight; h++)
+         array[h] = new boolean[width];
+      for (int h=0; h<hight; h++) 
          for (int w=0; w<width; ){
             s = sc.findInLine(".");
             if (s==null) sc.nextLine();
             else array[h][w++] = s.charAt(0)=='1';  
          }
-      }
    }
-   public void rotate() {
-	   boolean [][] array_aux = new boolean[width][];
-	   for (int w=0; w<width; w++) {
-	         array_aux[w] = new boolean[hight];
-	         for(int h=0;h<hight;h++)
-	        	 array_aux[w][h]=array[h][width-1-w];
-	   }
-	   int hight_aux=hight;
-	   hight=width;
-	   width=hight_aux;
-	   array=array_aux;
+   public Maze (Maze m){  // This is called copy constructor
+	   array = new boolean [m.array.length][];
+	   for (int h = 0; h < m.array.length; h++) {
+		   array[h] = new boolean [m.array[0].length];
+	        System.arraycopy(m.array[h], 0, array[h], 0, m.array[0].length);
+	    }
+   }
+   public boolean isThere_a_wall(int x, int y) {
+     return array[y][x];     
+   }
+   public void markPoint(Vector2D p){
+     array[(int)p.getY()][(int)p.getX()]=true;
+     return;
    }
    public void write(PrintStream out){
-	  out.println("P1");
-	  out.println("#Created by "+getClass().getName()+"UTFSM ELO329");
-	  out.println(width +" "+hight);
-	  for(int h=0;h<hight;h++) {
-		  for (int w=0; w<width; w++) {
-			  if(array[h][w])
-    			  out.print("1");
-    		  else
-    			  out.print("0");
-			  }      
-	  }
+      out.println("P1");
+      out.println("#Created by "+getClass().getName()+"UTFSM ELO329");
+      out.println(array[0].length + " " +array.length);
+      for (int h=0; h<array.length; h++) {
+         for (int w=0; w<array[0].length; w++)
+            out.print(array[h][w]?"1":"0");
+         out.println();
+      }   
    }
    private boolean [][] array;
-   private int hight;
-   private int width;
-   
 }
