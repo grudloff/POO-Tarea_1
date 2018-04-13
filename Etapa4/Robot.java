@@ -12,7 +12,7 @@ public class Robot {
 	   leftSensor = new DistanceSensor(new Vector2D(-dir.getY(), dir.getX()), sensorRange);
    // similar to Robot in previous stage without the logic to set the course
    /// that ti is now asked to the pilot
-      pilot = new Pilot (this);
+      pilot = new Pilot ();
    }
 
 
@@ -62,21 +62,17 @@ public void markRoute(Maze m){
 }
 //
 	public class Pilot {
-	   public Pilot(Robot r){
-		 robot = r;
-	     rs = r.getRightSensor();
-	     fs = r.getFrontSensor();
-	     ls = r.getLeftSensor();
+	   public Pilot(){
 	   // set the lookingForRightWall depending on the left sensor state
-	     lookingForRightWall=!rs.senseWall();
+	     lookingForRightWall=!rightSensor.senseWall();
 	   }
 	   public void setCourse(double delta_t){
 		   if(leftSensor.senseWall()) {
-			  robot.turnRight();
+			  turnRight();
 			  return;
 			  }
 		  if(frontSensor.senseWall()) {
-			  robot.turnLeft();
+			  turnLeft();
 			  return;
 		  }
 		  if(rightSensor.senseWall()) {
@@ -88,13 +84,11 @@ public void markRoute(Maze m){
 			  pos = pos.plus(v.times(delta_t));  
 			  return;
 		  }
-		  robot.turnRight();
+		  turnRight();
 		  lookingForRightWall=true;
 		  return;   
 	   }
 	   private boolean lookingForRightWall; //it is used to find the right wall at the beginning
-	   private Robot robot;
-	   private Robot.DistanceSensor rs,fs,ls; // right, front and left sensors. DistanceSensor is not enought
 	}
 
    public class DistanceSensor {  // now public because it is also used my Pilot

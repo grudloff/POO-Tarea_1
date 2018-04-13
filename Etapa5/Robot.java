@@ -127,7 +127,6 @@ public void markRoute(Maze m){
 	   }
 	   
 	   private boolean lookingFor; //it is used to find the right/left wall at the beginning and in corners
-	   private Robot.DistanceSensor rs,fs,ls; // right, front and left sensors. DistanceSensor is not enought
 	}
    public class DistanceSensor {  // now public because it is also used my Pilot
 	   public DistanceSensor(Vector2D dir, double range) {
