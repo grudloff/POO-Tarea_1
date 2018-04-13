@@ -18,7 +18,7 @@ public class Vector2D {
    }
    public void setTo(double x, double y){
 	   this.x=x;
-	   this.x=y;
+	   this.y=y;
    }
    public Vector2D plus(Vector2D v) {
 	   if (v==null) return  new Vector2D(x,y);
