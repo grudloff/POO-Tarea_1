@@ -1,8 +1,0 @@
-Etapa 1 
-
-Se corre con java SE 1.7
-Entrega en consola las posiciónes del robot para cada instante de simulación, con el comando:
-$java Stage1
-
-Si lo desea puede usar el comando:
-$java Stage1> salida_stage1.csv

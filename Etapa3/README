@@ -1,8 +1,0 @@
-Etapa3
-
-Se corre con java SE 1.7
-Se toma un archivo .pbm y se lee como laberinto, un robot lo recorre siguiendo un borde por la derecha por 120 segundos de simulación, luego se genera un archivo de salida .pbm que contiene el recorrido del robot en el laberinto. Se ejecuta con el comando:
-$java Stage3 <nombre_archivo_laberinto_entrada> <nombre_archivo_laberinto_salida>
-
-Si desea convertir de .pbm a .jpg,.png o .gif puede usar:
-java convertPBM <ORIGEN.pbm> <DESTINO.png>
