@@ -1,6 +1,6 @@
 Etapa4
 
-Se corre con java SE 1.7
+Se corre con java SE 7
 Se toma un archivo .pbm y se lee como laberinto, un robot lo recorre siguiendo un borde por la derecha hasta llegar al final. Los datos de posición inicial, velocidad inicial, posición final y radio pueden ser entregados en la segunda linea del archivo .pbm luego de agregar un "#", o alternativamente se pueden dar como argumentos en consola. Al finalizar se genera un archivo de salida .pbm que contiene el recorrido del robot en el laberinto. Se ejecuta con el comando:
 $java Stage4 <npbm input file> <pbm output file>
 o con entregando los valores señalados:

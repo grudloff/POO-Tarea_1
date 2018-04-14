@@ -1,6 +1,6 @@
 Etapa5
 
-Se corre con java SE 1.7
+Se corre con java SE 7
 Se toma un archivo .pbm y se lee como laberinto, un robot lo recorre siguiendo un borde por la derecha hasta llegar al final, luego desde el inicio se llega al final pero siguiendo los bordes por la izquierda. Si el segundo metodo se demora más del doble que el primero este se detiene. Los datos de posición inicial, velocidad inicial, posición final y radio pueden ser entregados en la segunda linea del archivo .pbm luego de agregar un "#", o alternativamente se pueden dar como argumentos en consola. Al finalizar se generan dos archivos de salida .pbm que contiene el recorrido del robot en el laberinto, cada uno con el nombre de <pbm output file> pero con "_1" y "_2" agregados previo al ".pbm". Se ejecuta con el comando:
 $java Stage5 <npbm input file> <pbm output file>
 o con entregando los valores señalados:

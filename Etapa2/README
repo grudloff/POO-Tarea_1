@@ -1,6 +1,6 @@
 Etapa 2
 
-Se corre con java SE 1.7
+Se corre con java SE 7
 Se toma un archivo .pbm y se rota +90° (sentido antihorario),con el comando:
 $java Stage2 <nombre_archivo_laberinto_entrada> <nombre_archivo_laberinto_salida>
 
